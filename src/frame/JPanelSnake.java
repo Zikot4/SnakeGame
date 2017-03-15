@@ -73,7 +73,12 @@ public class JPanelSnake extends JPanel {
     }
 
     void createNextPoint(Point point){
-    	point.setXY(random.nextInt(FIELD_WIDTH), random.nextInt(FIELD_HEIGHT));
+    	int x,y;
+    	do{
+    		x = random.nextInt(FIELD_WIDTH);
+    		y = random.nextInt(FIELD_HEIGHT);	
+    	}while(snake.isInsideSnake(x,y));
+	point.setXY(x, y);
     }
 
 
